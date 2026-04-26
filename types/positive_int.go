@@ -13,6 +13,10 @@ type PositiveInt[T Integer] struct {
 	value T
 }
 
+func (n PositiveInt[T]) Value() T {
+	return n.value
+}
+
 func NewPositiveInt[T Integer](value T) (PositiveInt[T], error) {
 	if value <= 0 {
 		return PositiveInt[T]{}, fmt.Errorf("value should be positive: %d", value)
